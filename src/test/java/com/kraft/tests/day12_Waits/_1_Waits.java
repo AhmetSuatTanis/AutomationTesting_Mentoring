@@ -117,6 +117,8 @@ public class _1_Waits {
          *  Not: Thread.sleep() metodunu kullanmayalım sadece dinamik yani akıllı wait kullanalım...
          */
 
+        //master olarak değiştirdim
+
 
 
 
