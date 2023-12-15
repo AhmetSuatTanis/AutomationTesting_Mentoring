@@ -27,8 +27,8 @@ public class _3_RelativeXpath {
 
         Thread.sleep(2000);
 
-        WebElement cokiesAccept = driver.findElement(By.xpath("//button[contains(@id,'confirm')]"));
-        cokiesAccept.click();
+        WebElement cookiesAccept = driver.findElement(By.xpath("//button[contains(@id,'confirm')]"));
+        cookiesAccept.click();
 
         Thread.sleep(2000);
 
