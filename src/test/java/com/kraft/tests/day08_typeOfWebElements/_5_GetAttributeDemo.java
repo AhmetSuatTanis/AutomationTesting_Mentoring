@@ -33,35 +33,81 @@ public class _5_GetAttributeDemo {
          */
 
         driver.get("https://www.krafttechexlab.com/login");
+        Thread.sleep(3000);
 
+        //ilk element bizim form elementi olduğu için 9 tane çıkan sonuca rağmen ilk sırada diye direkt adını yazıp kullandık.
         WebElement form = driver.findElement(By.tagName("form"));
 
         System.out.println("form.getAttribute(\"id\") = " + form.getAttribute("id"));
-
-        System.out.println("form.getAttribute(\"novalidate\") = " + form.getAttribute("novalidate"));
+        System.out.println("form.getAttribute(\"npvalidate\") = " + form.getAttribute("novalidate"));
         System.out.println("form.getAttribute(\"method\") = " + form.getAttribute("method"));
+        System.out.println("-------------getText()----------------");
 
-        System.out.println("\"------------------\" = " + "------------------");
 
         System.out.println("form.getText() = " + form.getText());
 
-        System.out.println("\"------------------\" = " + "------------------");
+        System.out.println("------------------getAttribute(\"innerHTML\")---------------------");
 
-        System.out.println("form.getAttribute(\"innerHTML\") = " + form.getAttribute("innerHTML"));
+        System.out.println("form.getAttribute(\"InnerHTML\") = " + form.getAttribute("innerHTML"));
 
-        System.out.println("\"------------------\" = " + "------------------");
+        System.out.println("-------------------getAttribute(\"outerHTML\")---------------------");
 
-        System.out.println("form.getAttribute(\"outerHTML\") = " + form.getAttribute("outerHTML"));
+        System.out.println("form.getAttribute(\"OuterHTML\") = " + form.getAttribute("outerHTML"));
 
-        System.out.println("\"------------------\" = " + "------------------");
+        System.out.println("-------------------getAttribute(\"tagName\")----------------------");
 
-        System.out.println("form.getAttribute(\"tagName\") = " + form.getAttribute("tagName"));
+        System.out.println("form.getAttribute(\"TagName\") = " + form.getAttribute("tagName"));
         System.out.println("form.getTagName() = " + form.getTagName());
+
+        System.out.println("--------------------form.getSize()--------------------");
+
         System.out.println("form.getSize() = " + form.getSize());
+
+        System.out.println("------------form.getRect().getHeight()-----form.getRect().getWidth()-----------------------");
+
         System.out.println("form.getRect().getHeight() = " + form.getRect().getHeight());
-        System.out.println("form.getCssValue(\"font\") = " + form.getCssValue("font"));
+        System.out.println("form.getRect().getWidth() = " + form.getRect().getWidth());
+
+        System.out.println("--------------------form.getCssValue(\"font\")-----form.getCssValue(\"background\")---------------");
+
+        System.out.println("form.getCssValue(\"form\") = " + form.getCssValue("font"));
         System.out.println("form.getCssValue(\"background\") = " + form.getCssValue("background"));
+
+        System.out.println("--------------------form.getLocation()--------------------");
+
         System.out.println("form.getLocation() = " + form.getLocation());
+
+
+//        driver.get("https://www.krafttechexlab.com/login");
+//
+//        WebElement form = driver.findElement(By.tagName("form"));
+//
+//        System.out.println("form.getAttribute(\"id\") = " + form.getAttribute("id"));
+//
+//        System.out.println("form.getAttribute(\"novalidate\") = " + form.getAttribute("novalidate"));
+//        System.out.println("form.getAttribute(\"method\") = " + form.getAttribute("method"));
+//
+//        System.out.println("\"------------------\" = " + "------------------");
+//
+//        System.out.println("form.getText() = " + form.getText());
+//
+//        System.out.println("\"------------------\" = " + "------------------");
+//
+//        System.out.println("form.getAttribute(\"innerHTML\") = " + form.getAttribute("innerHTML"));
+//
+//        System.out.println("\"------------------\" = " + "------------------");
+//
+//        System.out.println("form.getAttribute(\"outerHTML\") = " + form.getAttribute("outerHTML"));
+//
+//        System.out.println("\"------------------\" = " + "------------------");
+//
+//        System.out.println("form.getAttribute(\"tagName\") = " + form.getAttribute("tagName"));
+//        System.out.println("form.getTagName() = " + form.getTagName());
+//        System.out.println("form.getSize() = " + form.getSize());
+//        System.out.println("form.getRect().getHeight() = " + form.getRect().getHeight());
+//        System.out.println("form.getCssValue(\"font\") = " + form.getCssValue("font"));
+//        System.out.println("form.getCssValue(\"background\") = " + form.getCssValue("background"));
+//        System.out.println("form.getLocation() = " + form.getLocation());
 
 
     }
@@ -81,6 +127,13 @@ public class _5_GetAttributeDemo {
          * getAttribute("value") metodu ile alabiliriz..)
          * NOT: getAttribute metodu ile bir web elementin texti alınamaz.. onun için getText() metodu kullanılır..
          */
+
+        driver.get("https://demoqa.com/text-box");
+
+        WebElement fullName = driver.findElement(By.id("userName"));
+        System.out.println("fullName.getAttribute(\"type\") = " + fullName.getAttribute("type"));
+
+
     }
 
 }

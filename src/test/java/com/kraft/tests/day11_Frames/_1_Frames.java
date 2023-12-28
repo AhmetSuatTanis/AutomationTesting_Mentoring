@@ -36,25 +36,39 @@ public class _1_Frames {
          */
 
         driver.get("https://testpages.herokuapp.com/styled/iframes-test.html");
+
         driver.switchTo().frame("thedynamichtml");
+        WebElement iFrame = driver.findElement(By.xpath("//h1[text()='iFrame']"));
+        System.out.println("iFrame.getText() = " + iFrame.getText());
 
-        WebElement titleFrame = driver.findElement(By.tagName("h1"));
-        String actualTitle = titleFrame.getText();
-        String expectedTitle="iFrame";
+        driver.switchTo().parentFrame();
 
-        Assert.assertEquals(actualTitle,expectedTitle);
-
-        driver.switchTo().defaultContent();
-        //driver.switchTo().parentFrame();
-
-        WebElement secondFrame = driver.findElement(By.cssSelector("header-iframe>iframe"));
+        WebElement secondFrame = driver.findElement(By.xpath("//iframe[@id='theheaderhtml']"));
         driver.switchTo().frame(secondFrame);
 
-        titleFrame= driver.findElement(By.tagName("h1"));
-        actualTitle=titleFrame.getText();
-        expectedTitle="Nested Page Example";
+        WebElement nestedPageText = driver.findElement(By.xpath("//h1[text()='Nested Page Example']"));
+        System.out.println("nestedPageText.getText() = " + nestedPageText.getText());
 
-        Assert.assertEquals(actualTitle,expectedTitle);
+//        driver.get("https://testpages.herokuapp.com/styled/iframes-test.html");
+//        driver.switchTo().frame("thedynamichtml");
+//
+//        WebElement titleFrame = driver.findElement(By.tagName("h1"));
+//        String actualTitle = titleFrame.getText();
+//        String expectedTitle="iFrame";
+//
+//        Assert.assertEquals(actualTitle,expectedTitle);
+//
+//        driver.switchTo().defaultContent();
+//        //driver.switchTo().parentFrame();
+//
+//        WebElement secondFrame = driver.findElement(By.cssSelector("header-iframe>iframe"));
+//        driver.switchTo().frame(secondFrame);
+//
+//        titleFrame= driver.findElement(By.tagName("h1"));
+//        actualTitle=titleFrame.getText();
+//        expectedTitle="Nested Page Example";
+//
+//        Assert.assertEquals(actualTitle,expectedTitle);
 
     }
 
@@ -69,21 +83,38 @@ public class _1_Frames {
          * switch to main frame related method
          * take the "Nested Frames" heading and print it
          */
+
+
         driver.get("https://demoqa.com/nestedframes");
 
         driver.switchTo().frame("frame1");
-
-        WebElement parentFrame = driver.findElement(By.tagName("body"));
+        WebElement parentFrame = driver.findElement(By.xpath("//body[text()='Parent frame']"));
         System.out.println("parentFrame.getText() = " + parentFrame.getText());
 
         driver.switchTo().frame(0);
-        WebElement childFrame = driver.findElement(By.tagName("p"));
+        WebElement childFrame = driver.findElement(By.xpath("//p[text()='Child Iframe']"));
         System.out.println("childFrame.getText() = " + childFrame.getText());
 
         driver.switchTo().defaultContent();
+        WebElement nestedFrame = driver.findElement(By.xpath("//div[text()='Nested Frames']"));
+        System.out.println("nestedFrame.getText() = " + nestedFrame.getText());
 
-        WebElement mainTitle = driver.findElement(By.cssSelector(".main-header"));
-        System.out.println("mainTitle.getText() = " + mainTitle.getText());
+
+//        driver.get("https://demoqa.com/nestedframes");
+//
+//        driver.switchTo().frame("frame1");
+//
+//        WebElement parentFrame = driver.findElement(By.tagName("body"));
+//        System.out.println("parentFrame.getText() = " + parentFrame.getText());
+//
+//        driver.switchTo().frame(0);
+//        WebElement childFrame = driver.findElement(By.tagName("p"));
+//        System.out.println("childFrame.getText() = " + childFrame.getText());
+//
+//        driver.switchTo().defaultContent();
+//
+//        WebElement mainTitle = driver.findElement(By.cssSelector(".main-header"));
+//        System.out.println("mainTitle.getText() = " + mainTitle.getText());
 
     }
 }

@@ -4,6 +4,7 @@ import com.kraft.Utilities.WebDriverFactory;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.testng.Assert;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
@@ -21,13 +22,13 @@ public class _2_RadioButton {
 
     @AfterMethod
     public void tearDown() throws InterruptedException {
-        Thread.sleep(2000);
+        Thread.sleep(1000);
         driver.quit();
     }
 
 
     @Test
-    public void test1(){
+    public void test1() throws InterruptedException {
 
         /**
          * navigate to http://www.webdriveruniversity.com/Dropdown-Checkboxes-RadioButtons/index.html
@@ -43,22 +44,40 @@ public class _2_RadioButton {
          * verify that*/
 
         driver.get("http://www.webdriveruniversity.com/Dropdown-Checkboxes-RadioButtons/index.html");
+        WebElement yellow = driver.findElement(By.cssSelector("[value=\"yellow\"]"));
 
-        WebElement yellow = driver.findElement(By.cssSelector("[value='yellow']"));
-
-        assertFalse(yellow.isSelected());
+        //yellow seçili değil
+        Assert.assertFalse(yellow.isSelected());
         yellow.click();
-        assertTrue(yellow.isSelected());
+        Thread.sleep(1500);
+        Assert.assertTrue(yellow.isSelected());
 
-        WebElement blue = driver.findElement(By.cssSelector("[value='blue']"));
-        assertTrue(blue.isDisplayed());
+        WebElement blue = driver.findElement(By.cssSelector("[value=\"blue\"]"));
+        Assert.assertFalse(blue.isSelected());
         blue.click();
-        assertTrue(blue.isSelected());
+        Thread.sleep(1500);
+        Assert.assertTrue(blue.isSelected());
+
+
+
+
+//        driver.get("http://www.webdriveruniversity.com/Dropdown-Checkboxes-RadioButtons/index.html");
+//
+//        WebElement yellow = driver.findElement(By.cssSelector("[value='yellow']"));
+//
+//        assertFalse(yellow.isSelected());
+//        yellow.click();
+//        assertTrue(yellow.isSelected());
+//
+//        WebElement blue = driver.findElement(By.cssSelector("[value='blue']"));
+//        assertTrue(blue.isDisplayed());
+//        blue.click();
+//        assertTrue(blue.isSelected());
 
     }
 
     @Test
-    public void task(){
+    public void task() throws InterruptedException {
         /**
          * https://demoqa.com/automation-practice-form
          * locate female gender element
@@ -68,6 +87,19 @@ public class _2_RadioButton {
          * verify that the element is selected
          * ipucu: eğer elementten istediğiniz sonucu alamıyorsanız.. aynı yeri gösteren diğer elementleri deneyin....!!!!
          */
+
+        driver.get("https://demoqa.com/automation-practice-form");
+        //locate ederken label etiketine kadar locate edince tıklama yapıyor. direkt button'ı locate edince tıklama yapmıyor
+        WebElement female = driver.findElement(By.cssSelector(".custom-control.custom-radio.custom-control-inline+div>input+label"));
+        Assert.assertFalse(female.isSelected());
+        Assert.assertTrue(female.isDisplayed());
+        female.click();
+        Thread.sleep(1500);
+
+        //bu seferde tıklanan button'ı seçili değil mi diye kontrol ederken label'dan değil direkt buttondan locate ediyoruz.
+        WebElement female2 = driver.findElement(By.cssSelector(".custom-control.custom-radio.custom-control-inline+div>input"));
+        Assert.assertTrue(female2.isSelected());
+
     }
 
 }

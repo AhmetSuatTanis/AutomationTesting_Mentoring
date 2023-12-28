@@ -19,7 +19,8 @@ public class _4_DisableElements {
     }
 
     @AfterMethod
-    public void tearDown() {
+    public void tearDown() throws InterruptedException {
+        Thread.sleep(1000);
         driver.quit();
     }
 
@@ -36,21 +37,59 @@ public class _4_DisableElements {
 
         driver.get("https://the-internet.herokuapp.com/dynamic_controls");
 
-        WebElement textBar = driver.findElement(By.cssSelector("input[type='text']"));
+        WebElement disableTextBar = driver.findElement(By.xpath("//input[@type='text']"));
 
-        Assert.assertFalse(textBar.isEnabled());
+        //text bar'ın disable olup olmadığını kontrol edeceğiz.
+        Assert.assertFalse(disableTextBar.isEnabled());
+        Thread.sleep(1000);
 
-        WebElement button = driver.findElement(By.cssSelector("#input-example>button"));
-        button.click();
+        // enable button locate edilip tıklanıyor
+        WebElement enableBtn = driver.findElement(By.xpath("//button[text()='Enable']"));
+        enableBtn.click();
+        Thread.sleep(4000);
+
+        disableTextBar.sendKeys("The element is now enabled!!");
+        Thread.sleep(1000);
+        Assert.assertTrue(disableTextBar.isEnabled());
+
+        WebElement enableMessageText = driver.findElement(By.cssSelector("#message"));
+        String actualMessageText=enableMessageText.getText();
+        System.out.println("actualMessageText = " + actualMessageText);
+        String expectedMessageText="It's enabled!";
+        System.out.println("expectedMessageText = " + expectedMessageText);
+
+        Assert.assertEquals(actualMessageText,expectedMessageText);
+
+        WebElement disableBtn = driver.findElement(By.xpath("//button[text()='Disable']"));
+        disableBtn.click();
         Thread.sleep(5000);
 
-        textBar.sendKeys("The element is now enabled!!");
-        Assert.assertTrue(textBar.isEnabled());
+        WebElement disabledMessageText = driver.findElement(By.xpath("//p[@id='message']"));
+        String actualMessageText1=disabledMessageText.getText();
+        System.out.println("actualMessageText1 = " + actualMessageText1);
+        String expectedMessageText1="It's disabled!";
+        System.out.println("expectedMessageText1 = " + expectedMessageText1);
+
+        Assert.assertEquals(actualMessageText1,expectedMessageText1);
+
+
+//        driver.get("https://the-internet.herokuapp.com/dynamic_controls");
+//
+//        WebElement textBar = driver.findElement(By.cssSelector("input[type='text']"));
+//
+//        Assert.assertFalse(textBar.isEnabled());
+//
+//        WebElement button = driver.findElement(By.cssSelector("#input-example>button"));
+//        button.click();
+//        Thread.sleep(5000);
+//
+//        textBar.sendKeys("The element is now enabled!!");
+//        Assert.assertTrue(textBar.isEnabled());
 
     }
 
     @Test
-    public void task(){
+    public void task() throws InterruptedException {
 
         /**
          * navigate to http://www.webdriveruniversity.com/Dropdown-Checkboxes-RadioButtons/index.html
@@ -63,6 +102,57 @@ public class _4_DisableElements {
          * verify that the element is NOT selected
          * verify that the element is displayed
          */
+
+        driver.get("http://www.webdriveruniversity.com/Dropdown-Checkboxes-RadioButtons/index.html");
+        Thread.sleep(2000);
+
+        WebElement pumpkin = driver.findElement(By.xpath("//input[@value='pumpkin']"));
+
+        Assert.assertTrue(pumpkin.isEnabled());
+        Assert.assertTrue(pumpkin.isSelected());
+        Assert.assertTrue(pumpkin.isDisplayed());
+
+        WebElement cabbage = driver.findElement(By.xpath("//input[@value='cabbage']"));
+
+        Assert.assertFalse(cabbage.isEnabled());
+        Assert.assertFalse(cabbage.isSelected());
+        Assert.assertTrue(cabbage.isDisplayed());
+
+        WebElement selectDropDownMenu = driver.findElement(By.id("fruit-selects"));
+        selectDropDownMenu.click();
+        Thread.sleep(1000);
+
+        WebElement pear = driver.findElement(By.cssSelector("[value=\"pear\"]"));
+        pear.click();
+        System.out.println("selectDropDownMenu.getText() = " + selectDropDownMenu.getText());
+
+
+
     }
 
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

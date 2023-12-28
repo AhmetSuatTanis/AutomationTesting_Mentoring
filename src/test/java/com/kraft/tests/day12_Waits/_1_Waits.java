@@ -11,6 +11,7 @@ import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
+import java.util.List;
 import java.util.concurrent.TimeUnit;
 
 public class _1_Waits {
@@ -37,7 +38,7 @@ public class _1_Waits {
          */
         driver.get("https://the-internet.herokuapp.com/dynamic_loading/2");
 
-        //implicity wait
+        //implicitly wait
         driver.manage().timeouts().implicitlyWait(15, TimeUnit.SECONDS);
 
         WebElement startBtn = driver.findElement(By.xpath("//button[text()='Start']"));
@@ -84,7 +85,7 @@ public class _1_Waits {
          */
         driver.get("https://the-internet.herokuapp.com/dynamic_loading/2");
 
-        //implicity wait
+        //implicitly wait
         //driver.manage().timeouts().implicitlyWait(15, TimeUnit.SECONDS);
 
         WebElement startBtn = driver.findElement(By.xpath("//button[text()='Start']"));
@@ -117,10 +118,42 @@ public class _1_Waits {
          *  Not: Thread.sleep() metodunu kullanmayalım sadece dinamik yani akıllı wait kullanalım...
          */
 
-        //master olarak değiştirdim
+        driver.get("https://testpages.herokuapp.com/styled/dynamic-buttons-disabled.html");
 
+        WebDriverWait wait=new WebDriverWait(driver,15);
+        wait.until(ExpectedConditions.numberOfElementsToBe(By.cssSelector("#buttons>button"),4));
 
+        List<WebElement> buttonElements = driver.findElements(By.cssSelector("#buttons>button"));
 
+        for (WebElement button : buttonElements) {
+            wait.until(ExpectedConditions.elementToBeClickable(button)).click();
+        }
+
+        WebElement text = driver.findElement(By.xpath("//p[text()='All Buttons Clicked']"));
+        String actualText= text.getText();
+        System.out.println("actualText = " + actualText);
+        String expectedText="All Buttons Clicked";
+        System.out.println("expectedText = " + expectedText);
+
+        Assert.assertEquals(actualText,expectedText);
+
+        //        driver.get("https://testpages.herokuapp.com/styled/dynamic-buttons-disabled.html");
+//
+//
+//        WebDriverWait wait = new WebDriverWait(driver, 15);
+//        wait.until(ExpectedConditions.numberOfElementsToBe(By.tagName("button"), 4));
+//
+//        List<WebElement> buttons = driver.findElements(By.tagName("button"));
+//
+//        for (WebElement button : buttons) {
+//            wait.until(ExpectedConditions.elementToBeClickable(button)).click();
+//        }
+//
+//        WebElement message = driver.findElement(By.id("buttonmessage"));
+//        String actualMessage = message.getText();
+//        String expectedMessage = "All Buttons Clicked";
+//
+//        Assert.assertEquals(actualMessage,expectedMessage);
 
     }
 }
