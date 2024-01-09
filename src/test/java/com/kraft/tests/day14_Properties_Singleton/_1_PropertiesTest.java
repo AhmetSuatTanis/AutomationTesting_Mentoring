@@ -1,6 +1,6 @@
 package com.kraft.tests.day14_Properties_Singleton;
 
-import com.kraft.Utilities.ConfigurationReader;
+import com.kraft.utilities.ConfigurationReader;
 import org.testng.annotations.Test;
 
 public class _1_PropertiesTest {

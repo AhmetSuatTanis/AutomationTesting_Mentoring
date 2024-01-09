@@ -1,6 +1,6 @@
 package com.kraft.tests.day08_typeOfWebElements;
 
-import com.kraft.Utilities.WebDriverFactory;
+import com.kraft.utilities.WebDriverFactory;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -90,20 +90,37 @@ public class _3_DisplayElements {
          * get the element text and print it
          */
 
-        driver.get("https://the-internet.herokuapp.com/dynamic_loading");
-
-        WebElement secondLink = driver.findElement(By.xpath("//a[text()='Example 2: Element rendered after the fact']"));
+        driver.navigate().to("https://the-internet.herokuapp.com/dynamic_loading");
         Thread.sleep(1000);
-        secondLink.click();
+
+        WebElement clickBtn = driver.findElement(By.xpath("//a[text()='Example 2: Element rendered after the fact']"));
+        clickBtn.click();
+        Thread.sleep(1000);
+
 
         WebElement startBtn = driver.findElement(By.xpath("//button[text()='Start']"));
-        Thread.sleep(1000);
         startBtn.click();
         Thread.sleep(5000);
 
-        WebElement hello = driver.findElement(By.xpath("//h4[text()='Hello World!']"));
-        Assert.assertTrue(hello.isDisplayed());
-        System.out.println("hello.getText() = " + hello.getText());
+        WebElement helloText = driver.findElement(By.xpath("//div/h4[text()='Hello World!']"));
+        Assert.assertTrue(helloText.isDisplayed());
+        System.out.println("helloText.getText() = " + helloText.getText());
+
+
+//        driver.get("https://the-internet.herokuapp.com/dynamic_loading");
+//
+//        WebElement secondLink = driver.findElement(By.xpath("//a[text()='Example 2: Element rendered after the fact']"));
+//        Thread.sleep(1000);
+//        secondLink.click();
+//
+//        WebElement startBtn = driver.findElement(By.xpath("//button[text()='Start']"));
+//        Thread.sleep(1000);
+//        startBtn.click();
+//        Thread.sleep(5000);
+//
+//        WebElement hello = driver.findElement(By.xpath("//h4[text()='Hello World!']"));
+//        Assert.assertTrue(hello.isDisplayed());
+//        System.out.println("hello.getText() = " + hello.getText());
 
 
     }

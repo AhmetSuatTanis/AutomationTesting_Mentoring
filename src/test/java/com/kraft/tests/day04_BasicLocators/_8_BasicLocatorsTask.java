@@ -1,6 +1,6 @@
 package com.kraft.tests.day04_BasicLocators;
 
-import com.kraft.Utilities.WebDriverFactory;
+import com.kraft.utilities.WebDriverFactory;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 

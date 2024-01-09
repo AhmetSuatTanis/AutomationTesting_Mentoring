@@ -1,6 +1,6 @@
 package com.kraft.tests.day06_CSS_Id_Class;
 
-import com.kraft.Utilities.WebDriverFactory;
+import com.kraft.utilities.WebDriverFactory;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;

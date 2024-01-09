@@ -1,4 +1,4 @@
-package com.kraft.Utilities;
+package com.kraft.utilities;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.Point;

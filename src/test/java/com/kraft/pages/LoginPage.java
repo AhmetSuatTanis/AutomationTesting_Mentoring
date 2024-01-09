@@ -1,10 +1,8 @@
 package com.kraft.pages;
 
-import com.kraft.Utilities.ConfigurationReader;
-import com.kraft.Utilities.Driver;
+import com.kraft.utilities.ConfigurationReader;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
-import org.openqa.selenium.support.PageFactory;
 
 import java.util.List;
 

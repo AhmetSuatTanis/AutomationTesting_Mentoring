@@ -1,6 +1,6 @@
 package com.kraft.pages;
 
-import com.kraft.Utilities.Driver;
+import com.kraft.utilities.Driver;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.PageFactory;

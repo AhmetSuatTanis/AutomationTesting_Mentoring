@@ -1,6 +1,6 @@
 package com.kraft.tests.day13_actions_JsExecutor_FileUpload_WebTables;
 
-import com.kraft.Utilities.WebDriverFactory;
+import com.kraft.utilities.WebDriverFactory;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;

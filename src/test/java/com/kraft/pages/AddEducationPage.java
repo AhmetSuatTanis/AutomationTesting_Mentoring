@@ -1,6 +1,6 @@
 package com.kraft.pages;
 
-import com.kraft.Utilities.Driver;
+import com.kraft.utilities.Driver;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
@@ -14,7 +14,7 @@ public class AddEducationPage extends BasePage{
     @FindBy(css = "input#school")
     public WebElement schoolBar;
 
-    public void fillingAddEducationFrom(String schoolName, String degree, String study, String
+    public void fillingAddEducationForm(String schoolName, String degree, String study, String
             fromDate, String toDate, String description){
 
         Actions actions=new Actions(Driver.get());

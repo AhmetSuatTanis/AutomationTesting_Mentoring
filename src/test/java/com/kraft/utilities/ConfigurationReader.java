@@ -1,4 +1,4 @@
-package com.kraft.Utilities;
+package com.kraft.utilities;
 
 import java.io.FileInputStream;
 import java.io.IOException;

@@ -1,6 +1,6 @@
 package com.kraft.tests.day08_typeOfWebElements;
 
-import com.kraft.Utilities.WebDriverFactory;
+import com.kraft.utilities.WebDriverFactory;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -113,14 +113,14 @@ public class _5_GetAttributeDemo {
     }
 
     @Test
-    public void task(){
+    public void task() throws InterruptedException {
         /**
          * navigate to https://demoqa.com/text-box
          * locate Full Name input box
          * use getAttribute method with the element
          * get type attribute value and print it
          * get autocomplete attribute value and print it
-         * get name attribue value and print it (name attribute olmadığı için boş dönecektir. hata vermez..)
+         * get name attribute value and print it (name attribute olmadığı için boş dönecektir. hata vermez..)
          * get innerHTML and print it (altında child veya grandchild element olmadığından boş döner..)
          * get outerHTML (sadece kendi tag bilgilerini döner..)
          * send Ahmet to the box and take the value (eğer bir text box'ına yazı gönderirsek.. bu gönderlen yazıyı
@@ -132,6 +132,18 @@ public class _5_GetAttributeDemo {
 
         WebElement fullName = driver.findElement(By.id("userName"));
         System.out.println("fullName.getAttribute(\"type\") = " + fullName.getAttribute("type"));
+
+        System.out.println("fullName.getAttribute(\"autocomplete\") = " + fullName.getAttribute("autocomplete"));
+
+        System.out.println("fullName.getAttribute(\"name\") = " + fullName.getAttribute("name"));
+
+        System.out.println("fullName.getAttribute(\"innerHTML\") = " + fullName.getAttribute("innerHTML"));
+
+        System.out.println("fullName.getAttribute(\"outerHTML\") = " + fullName.getAttribute("outerHTML"));
+
+        fullName.sendKeys("Ahmet");
+        Thread.sleep(3000);
+        System.out.println("fullName.getAttribute(\"value\") = " + fullName.getAttribute("value"));
 
 
     }

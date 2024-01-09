@@ -1,7 +1,6 @@
 package com.kraft.tests.day14_Properties_Singleton;
 
-import com.kraft.Utilities.Driver;
-import com.kraft.Utilities.WebDriverFactory;
+import com.kraft.utilities.Driver;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;

@@ -1,6 +1,6 @@
 package com.kraft.tests.day14_Properties_Singleton;
 
-import com.kraft.Utilities.ConfigurationReader;
+import com.kraft.utilities.ConfigurationReader;
 
 public class _2_SingletonDemo {
     private _2_SingletonDemo() {

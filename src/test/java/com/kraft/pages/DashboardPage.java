@@ -1,7 +1,5 @@
 package com.kraft.pages;
 
-import com.kraft.Utilities.ConfigurationReader;
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.testng.Assert;

@@ -1,17 +1,15 @@
 package com.kraft.tests.day16_POM_2;
 
-import com.kraft.Utilities.BrowserUtils;
-import com.kraft.Utilities.ConfigurationReader;
+import com.kraft.tests.TestBase;
+import com.kraft.utilities.BrowserUtils;
+import com.kraft.utilities.ConfigurationReader;
 import com.kraft.pages.AddEducationPage;
 import com.kraft.pages.DashboardPage;
 import com.kraft.pages.LoginPage;
 import com.kraft.pages.UserProfilePage;
-import com.kraft.tests.TestBase;
-import org.apache.hc.core5.http.nio.AsyncServerRequestHandler;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.testng.Assert;
 import org.testng.annotations.Test;
-import org.testng.internal.ConfigurationGroupMethods;
 
 public class _1_AddEducationTest extends TestBase {
 

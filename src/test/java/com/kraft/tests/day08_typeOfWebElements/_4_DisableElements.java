@@ -1,6 +1,6 @@
 package com.kraft.tests.day08_typeOfWebElements;
 
-import com.kraft.Utilities.WebDriverFactory;
+import com.kraft.utilities.WebDriverFactory;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -92,7 +92,7 @@ public class _4_DisableElements {
     public void task() throws InterruptedException {
 
         /**
-         * navigate to http://www.webdriveruniversity.com/Dropdown-Checkboxes-RadioButtons/index.html
+         * navigate to https://www.webdriveruniversity.com/Dropdown-Checkboxes-RadioButtons/index.html
          * locate pumpkin element
          * verify that the element is enabled
          * verify that the element is selected
@@ -106,28 +106,38 @@ public class _4_DisableElements {
         driver.get("http://www.webdriveruniversity.com/Dropdown-Checkboxes-RadioButtons/index.html");
         Thread.sleep(2000);
 
-        WebElement pumpkin = driver.findElement(By.xpath("//input[@value='pumpkin']"));
+        WebElement pumpkinElement = driver.findElement(By.xpath("//input[contains(@value , 'pumpkin')]"));
 
-        Assert.assertTrue(pumpkin.isEnabled());
-        Assert.assertTrue(pumpkin.isSelected());
-        Assert.assertTrue(pumpkin.isDisplayed());
+        Assert.assertTrue(pumpkinElement.isEnabled());
+        Assert.assertTrue(pumpkinElement.isSelected());
+        Assert.assertTrue(pumpkinElement.isDisplayed());
 
-        WebElement cabbage = driver.findElement(By.xpath("//input[@value='cabbage']"));
-
-        Assert.assertFalse(cabbage.isEnabled());
-        Assert.assertFalse(cabbage.isSelected());
-        Assert.assertTrue(cabbage.isDisplayed());
-
-        WebElement selectDropDownMenu = driver.findElement(By.id("fruit-selects"));
-        selectDropDownMenu.click();
-        Thread.sleep(1000);
-
-        WebElement pear = driver.findElement(By.cssSelector("[value=\"pear\"]"));
-        pear.click();
-        System.out.println("selectDropDownMenu.getText() = " + selectDropDownMenu.getText());
+        WebElement cabbageElement = driver.findElement(By.xpath("//input[contains(@value , 'cabbage')]"));
+        Assert.assertFalse(cabbageElement.isEnabled());
+        Assert.assertFalse(cabbageElement.isSelected());
+        Assert.assertTrue(cabbageElement.isDisplayed());
 
 
 
+//        WebElement pumpkin = driver.findElement(By.xpath("//input[@value='pumpkin']"));
+//
+//        Assert.assertTrue(pumpkin.isEnabled());
+//        Assert.assertTrue(pumpkin.isSelected());
+//        Assert.assertTrue(pumpkin.isDisplayed());
+//
+//        WebElement cabbage = driver.findElement(By.xpath("//input[@value='cabbage']"));
+//
+//        Assert.assertFalse(cabbage.isEnabled());
+//        Assert.assertFalse(cabbage.isSelected());
+//        Assert.assertTrue(cabbage.isDisplayed());
+//
+//        WebElement selectDropDownMenu = driver.findElement(By.id("fruit-selects"));
+//        selectDropDownMenu.click();
+//        Thread.sleep(1000);
+//
+//        WebElement pear = driver.findElement(By.cssSelector("[value=\"pear\"]"));
+//        pear.click();
+//        System.out.println("selectDropDownMenu.getText() = " + selectDropDownMenu.getText());
     }
 
 }

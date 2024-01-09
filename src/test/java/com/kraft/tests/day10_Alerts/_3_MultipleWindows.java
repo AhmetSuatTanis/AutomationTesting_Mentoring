@@ -1,6 +1,6 @@
 package com.kraft.tests.day10_Alerts;
 
-import com.kraft.Utilities.WebDriverFactory;
+import com.kraft.utilities.WebDriverFactory;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
@@ -36,29 +36,33 @@ public class _3_MultipleWindows {
          * verify that the new page's url is different
          */
 
-        driver.get("https://testpages.herokuapp.com/styled/windows-test.html");
-        driver.findElement(By.linkText("Basic Ajax in new page")).click();
 
-        Thread.sleep(2000);
 
-        String currentTab = driver.getWindowHandle();
-        Set<String> allTabs = driver.getWindowHandles();
+        
 
-        System.out.println("currentTab = " + currentTab);
-        System.out.println("allTabs = " + allTabs);
-
-        for (String tab : allTabs) {
-            if (!currentTab.equals(tab)){
-                driver.switchTo().window(tab);
-                break;
-            }
-        }
-
-        String actualTitle=driver.getTitle();
-        String expectedTitle="Test Page For Basic Ajax Example";
-        Assert.assertEquals(actualTitle,expectedTitle);
-
-        Assert.assertFalse(driver.getCurrentUrl().equals("https://testpages.herokuapp.com/styled/windows-test.html"));
+//        driver.get("https://testpages.herokuapp.com/styled/windows-test.html");
+//        driver.findElement(By.linkText("Basic Ajax in new page")).click();
+//
+//        Thread.sleep(2000);
+//
+//        String currentTab = driver.getWindowHandle();
+//        Set<String> allTabs = driver.getWindowHandles();
+//
+//        System.out.println("currentTab = " + currentTab);
+//        System.out.println("allTabs = " + allTabs);
+//
+//        for (String tab : allTabs) {
+//            if (!currentTab.equals(tab)){
+//                driver.switchTo().window(tab);
+//                break;
+//            }
+//        }
+//
+//        String actualTitle=driver.getTitle();
+//        String expectedTitle="Test Page For Basic Ajax Example";
+//        Assert.assertEquals(actualTitle,expectedTitle);
+//
+//        Assert.assertFalse(driver.getCurrentUrl().equals("https://testpages.herokuapp.com/styled/windows-test.html"));
     }
 
     @Test

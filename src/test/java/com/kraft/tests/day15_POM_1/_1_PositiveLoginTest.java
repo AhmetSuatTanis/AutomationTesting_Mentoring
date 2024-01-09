@@ -1,9 +1,10 @@
 package com.kraft.tests.day15_POM_1;
 
-import com.kraft.Utilities.ConfigurationReader;
-import com.kraft.pages.LoginPage;
 import com.kraft.tests.TestBase;
+import com.kraft.utilities.ConfigurationReader;
+import com.kraft.pages.LoginPage;
 import org.testng.annotations.Test;
+
 
 public class _1_PositiveLoginTest extends TestBase {
 

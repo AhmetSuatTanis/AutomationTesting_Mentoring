@@ -1,6 +1,6 @@
 package com.kraft.tests.day09_listOfWebElements_DropDowns;
 
-import com.kraft.Utilities.WebDriverFactory;
+import com.kraft.utilities.WebDriverFactory;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
@@ -29,9 +29,9 @@ public class _2_DropDowns {
     }
 
     @Test
-    public void test1(){
+    public void test1() throws InterruptedException {
         /**    CLASS TASK
-         * navigate to https://www.amazon.com.tr/"
+         * navigate to https://www.amazon.com.tr"
          * accept cookies if any
          * locate the dropdown menu nearby the search box
          * get all departments(web elements) as a list
@@ -40,68 +40,102 @@ public class _2_DropDowns {
          * verify that the selected option's text is 'PC ve Video Oyunları'
          */
 
-        driver.get("https://www.amazon.com.tr/");
+       driver.get("https://www.amazon.com.tr");
 
-        //accept cookies
-        driver.findElement(By.id("sp-cc-accept")).click();
+       driver.findElement(By.id("sp-cc-accept")).click();
 
-        WebElement searchDropDownBox = driver.findElement(By.id("searchDropdownBox"));
-        Select select=new Select(searchDropDownBox);
+        WebElement searchDropdownBox = driver.findElement(By.id("searchDropdownBox"));
 
-        List<WebElement> options=select.getOptions();
+        Select select=new Select(searchDropdownBox);
 
-        Assert.assertEquals(options.size(),21);
+        List<WebElement> dropDownElements = driver.findElements(By.xpath("//select/option"));
 
-        options.get(16).click();
+        Assert.assertTrue(dropDownElements.size()==21);
+        Thread.sleep(2000);
 
+        dropDownElements.get(16).click();
         WebElement firstSelectedOption = select.getFirstSelectedOption();
-        String actualText = firstSelectedOption.getText();
+        String actualText=firstSelectedOption.getText();
         String expectedText="PC ve Video Oyunları";
-
         Assert.assertEquals(actualText,expectedText);
+        Thread.sleep(2000);
 
-        /** select the "Baby" department by using visible text
-         * then verify the department name
-         */
-
+        //Bebek  seçeneği select objesiyle, Select  class'ını yardımı sayesinde seçildi.
+        //işlemler uzatılmadan Assertion içinde kısa olarak verify yapıldı (Strign actual, expected kısmı yazılmadan atlandı)
         select.selectByVisibleText("Bebek");
-        firstSelectedOption=select.getFirstSelectedOption();
-        actualText=firstSelectedOption.getText();
-        expectedText="Bebek";
-
-        Assert.assertEquals(actualText,expectedText);
-
-        /** select the "Kitaplar" department by using index 9
-         * then verify the department name
-         */
+        Assert.assertEquals(select.getFirstSelectedOption().getText(),"Bebek");
+        Thread.sleep(2000);
 
         select.selectByIndex(9);
-        firstSelectedOption=select.getFirstSelectedOption();
-        actualText=firstSelectedOption.getText();
-        expectedText="Kitaplar";
-
-        Assert.assertEquals(actualText,expectedText);
-
-        //second way
-        options.get(9).click();
-        firstSelectedOption=select.getFirstSelectedOption();
-        actualText=firstSelectedOption.getText();
-        expectedText="Kitaplar";
-
-        Assert.assertEquals(actualText,expectedText);
-
-        /** select the "Otomotiv" department by using value attribute
-         * then verify the department name
-         */
+        Assert.assertEquals(select.getFirstSelectedOption().getText(),"Kitaplar");
+        Thread.sleep(2000);
 
         select.selectByValue("search-alias=automotive");
-        firstSelectedOption=select.getFirstSelectedOption();
-        actualText=firstSelectedOption.getText();
-        expectedText="Otomotiv";
+        Assert.assertEquals(select.getFirstSelectedOption().getText(),"Otomotiv");
 
-        Assert.assertEquals(actualText,expectedText);
 
-        options.forEach(e-> System.out.println(e.getText()));
+//        driver.get("https://www.amazon.com.tr/");
+//
+//        //accept cookies
+//        driver.findElement(By.id("sp-cc-accept")).click();
+//
+//        WebElement searchDropDownBox = driver.findElement(By.id("searchDropdownBox"));
+//        Select select=new Select(searchDropDownBox);
+//
+//        List<WebElement> options=select.getOptions();
+//
+//        Assert.assertEquals(options.size(),21);
+//
+//        options.get(16).click();
+//
+//        WebElement firstSelectedOption = select.getFirstSelectedOption();
+//        String actualText = firstSelectedOption.getText();
+//        String expectedText="PC ve Video Oyunları";
+//
+//        Assert.assertEquals(actualText,expectedText);
+//
+//        /** select the "Baby" department by using visible text
+//         * then verify the department name
+//         */
+//
+//        select.selectByVisibleText("Bebek");
+//        firstSelectedOption=select.getFirstSelectedOption();
+//        actualText=firstSelectedOption.getText();
+//        expectedText="Bebek";
+//
+//        Assert.assertEquals(actualText,expectedText);
+//
+//        /** select the "Kitaplar" department by using index 9
+//         * then verify the department name
+//         */
+//
+//        select.selectByIndex(9);
+//        firstSelectedOption=select.getFirstSelectedOption();
+//        actualText=firstSelectedOption.getText();
+//        expectedText="Kitaplar";
+//
+//        Assert.assertEquals(actualText,expectedText);
+//
+//        //second way
+//        options.get(9).click();
+//        firstSelectedOption=select.getFirstSelectedOption();
+//        actualText=firstSelectedOption.getText();
+//        expectedText="Kitaplar";
+//
+//        Assert.assertEquals(actualText,expectedText);
+//
+//        /** select the "Otomotiv" department by using value attribute
+//         * then verify the department name
+//         */
+//
+//        select.selectByValue("search-alias=automotive");
+//        firstSelectedOption=select.getFirstSelectedOption();
+//        actualText=firstSelectedOption.getText();
+//        expectedText="Otomotiv";
+//
+//        Assert.assertEquals(actualText,expectedText);
+//
+//        options.forEach(e-> System.out.println(e.getText()));
 
     }
 

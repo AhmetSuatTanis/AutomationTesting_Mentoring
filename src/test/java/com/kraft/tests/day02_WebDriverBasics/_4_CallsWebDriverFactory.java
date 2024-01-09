@@ -1,7 +1,6 @@
 package com.kraft.tests.day02_WebDriverBasics;
 
-import com.kraft.Utilities.WebDriverFactory;
-import io.github.bonigarcia.wdm.WebDriverManager;
+import com.kraft.utilities.WebDriverFactory;
 import org.openqa.selenium.WebDriver;
 
 public class _4_CallsWebDriverFactory {

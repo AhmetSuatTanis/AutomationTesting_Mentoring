@@ -1,6 +1,6 @@
 package com.kraft.tests.day10_Alerts;
 
-import com.kraft.Utilities.WebDriverFactory;
+import com.kraft.utilities.WebDriverFactory;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -8,8 +8,6 @@ import org.testng.Assert;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
-
-import static java.awt.SystemColor.text;
 
 public class _1_HTML_PopUp {
 
@@ -36,20 +34,40 @@ public class _1_HTML_PopUp {
          * then click on ok at the popup
          * verify that ok button cannot be seen
          */
+
         driver.get("https://testpages.herokuapp.com/styled/alerts/fake-alert-test.html");
-        WebElement fakeAlert = driver.findElement(By.cssSelector("[value=\"Show fake alert box\"]"));
+        Thread.sleep(2000);
+
+        WebElement fakeAlert = driver.findElement(By.id("fakealert"));
         fakeAlert.click();
         Thread.sleep(2000);
 
-        WebElement okButton = driver.findElement(By.cssSelector("#dialog-ok"));
-        Assert.assertTrue(okButton.isDisplayed());
+        WebElement okBtn = driver.findElement(By.id("dialog-ok"));
+        Assert.assertTrue(okBtn.isDisplayed());
 
-        WebElement text = driver.findElement(By.cssSelector("#dialog-text"));
-        System.out.println("text = " + text);
+        WebElement alertText = driver.findElement(By.cssSelector("h2#dialog-text"));
+        System.out.println("alertText.getText() = " + alertText.getText());
 
-        okButton.click();
+        okBtn.click();
+        Thread.sleep(1000);
 
-        Assert.assertFalse(okButton.isDisplayed());
+        Assert.assertFalse(okBtn.isDisplayed());
+
+
+//        driver.get("https://testpages.herokuapp.com/styled/alerts/fake-alert-test.html");
+//        WebElement fakeAlert = driver.findElement(By.cssSelector("[value=\"Show fake alert box\"]"));
+//        fakeAlert.click();
+//        Thread.sleep(2000);
+//
+//        WebElement okButton = driver.findElement(By.cssSelector("#dialog-ok"));
+//        Assert.assertTrue(okButton.isDisplayed());
+//
+//        WebElement text = driver.findElement(By.cssSelector("#dialog-text"));
+//        System.out.println("text = " + text);
+//
+//        okButton.click();
+//
+//        Assert.assertFalse(okButton.isDisplayed());
 
     }
 }
